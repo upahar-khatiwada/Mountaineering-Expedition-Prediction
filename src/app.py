@@ -1,9 +1,12 @@
 import joblib
 import streamlit as st
 import pandas as pd
+import os
 
-pipeline = joblib.load('C:\\Users\\Legion\\Desktop\\Mountaineering Success Prediction\\src\\Model\\saved_model_pipeline.pkl')
-# pipeline = joblib.load('C:\\Users\\Legion\\Desktop\\Mountaineering Success Prediction\\src\Model\\saved_model.pkl')
+current_dir = os.path.dirname(__file__)
+pipeline_path = os.path.join(current_dir, "Model", "saved_model_pipeline.pkl")
+
+pipeline = joblib.load(pipeline_path)
 
 pkname = st.selectbox("Select Peak's Name", ['Everest', 'Ama Dablam', 'Baruntse', 'Cho Oyu', 'Gyalzen Peak',
        'Himlung Himal', 'Kyungka Ri 2', 'Luza', 'Manaslu', 'Annapurna I',
